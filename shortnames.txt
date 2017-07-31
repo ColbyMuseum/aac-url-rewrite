@@ -2,5 +2,5 @@
 # shortnames.txt: AAC data hostnames to repo shortnames
 #
 
-rewrite1.weichbild.com rewrite1
+rewritten.weichbild.com rewritten
 
