@@ -1,14 +1,15 @@
 # aac-url-rewrite
 
-Apache configuration files rewriting linked data repository URLs (eg, 'http://data.americanartcollaborative.org/ccma/object/4') into museum-branded URLs (eg, `http://data.museum.colby.edu/object/4`). Uses a mapping file, `shortnames.txt`, to match the hostnames to repo names.
+Apache and Pubby configuration files enabling branded linked data repository URLs served from a single Pubby instance and SPARQL endpoint.
 
 ## Goals
-If I go to `http://data.instituion.org/XXX` return data from `http://data.americanartcollaborative.org/inst/XXX` without a redirect. 
+When an instituion creates a DNS entry that points to the AAC pubby instance, requests to that hostname (eg `http://data.museum.colby.edu/object/4`) should return data from the AAC dataset, served by the Pubby instance at `http://data.americanartcollaborative.org`.
+
+## Example 
+[](http://aac-test.weichbild.com/ccma/object/4) returns data directly from the Pubby instance, [](http://rewritten.weichbild.com/object/4) returns the same data only from a different hostname.
 
 ## Usage
-Provided you have apache and mod_rewrite installed, put `shortnames.txt` in `/etc/apache2` and copy `000-default.conf` in `/etc/apache2/sites-available`, put some files in `/var/www/html/rewritten`, and restart apache.
+Just a demo, not really meant for use just yet.
 
 ## FIXME:
-- Does not account for proxying beneath the hostname map. Should work with `[L,P]` as the option term as long as the proxy is set up correctly?
-- Relative URL madness. Fix by only enabling the rule only if the repo-name appears in the path.
-- Check other accept-types/content-types. It would be nice to pass along Pubby's raw data dump, eg.
+- Maintenance: each instituion needs a VirtualHost term (Apache) and a multiURIMapping term (Pubby).
