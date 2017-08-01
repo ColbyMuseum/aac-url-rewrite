@@ -1,6 +1,0 @@
-#
-# shortnames.txt: AAC data hostnames to repo shortnames
-#
-
-rewritten.weichbild.com rewritten
-

@@ -9,7 +9,13 @@ When an instituion creates a DNS entry that points to the AAC pubby instance, re
 [http://aac-test.weichbild.com/ccma/object/4](http://aac-test.weichbild.com/ccma/object/4) returns data directly from the Pubby instance, [http://rewritten.weichbild.com/object/4](http://rewritten.weichbild.com/object/4) returns the same data only from a different hostname.
 
 ## Usage
-Just a demo, not really meant for use just yet.
+Assuming Ubuntu:
+- Install apache, mod_proxy, mod_proxy_express
+- Put `000-default.conf` in `/etc/apache2/sites-available/`
+- Edit the proxy mapping, `express-map.txt` as needed
+- Convert the proxy mapping file to SDBM: `httxt2dbm -v -f SDBM -i express-map.txt -o /etc/apache2/conf-available/emap`
+- Restart apache
+
 
 ## FIXME:
-- Maintenance: each instituion needs a VirtualHost term (Apache) and a multiURIMapping term (Pubby).
+- Each instituion still needs a multiURIMapping entry in the pubby configuration.
